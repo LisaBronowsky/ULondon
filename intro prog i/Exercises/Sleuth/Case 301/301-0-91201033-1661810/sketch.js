@@ -39,6 +39,20 @@ var rocky_kray_image;
 var lina_lovelace_x_loc = 115;
 var lina_lovelace_y_loc = 309;
 
+var robbie_kray_x_loc = 115;
+var robbie_kray_y_loc = 40;
+
+var pawel_karpinski_x_loc = 408;
+var pawel_karpinski_y_loc = 40;
+
+var anna_karpinski_x_loc = 701;
+var anna_karpinski_y_loc = 40;
+
+var countess_hamilton_x_loc = 408;
+var countess_hamilton_y_loc = 309;
+
+var rocky_kray_x_loc = 701;
+var rocky_kray_y_loc = 309;
 
 function preload()
 {
@@ -66,10 +80,14 @@ function draw()
 	//And update these image commands with your x and y coordinates.
 	image(lina_lovelace_image, lina_lovelace_x_loc, lina_lovelace_y_loc);
 
-	//image(robbie_kray_image, 115, 40);
-	//image(pawel_karpinski_image, 408, 40);
-	//image(anna_karpinski_image, 701, 40);
-	//image(countess_hamilton_image, 408, 309);
-	//image(rocky_kray_image, 701, 309);
+	image(robbie_kray_image, robbie_kray_x_loc, robbie_kray_y_loc);
+    
+	image(pawel_karpinski_image, pawel_karpinski_x_loc, pawel_karpinski_y_loc);
+    
+	image(anna_karpinski_image, anna_karpinski_x_loc, anna_karpinski_y_loc);
+    
+	image(countess_hamilton_image, countess_hamilton_x_loc, countess_hamilton_y_loc);
+    
+	image(rocky_kray_image, rocky_kray_x_loc, rocky_kray_y_loc);
 
 }
