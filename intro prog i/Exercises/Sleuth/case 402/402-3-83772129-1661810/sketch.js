@@ -3,7 +3,7 @@
 Stage 4 - Fox
 
 Officer: 1661810
-CaseNum: 402-3-82582179-1661810
+CaseNum: 402-3-83772129-1661810
 
 This final Why gang member Fox is the boss of the gang. Fox is particularly
 cunning and has hidden herself down this twisted network of alleys known as
@@ -27,8 +27,8 @@ var overlayImage;
 var det = {
 	"speedX": 0,
 	"speedY": 0,
-	"locationX": 763,
-	"locationY": 10,
+	"locationX": 73,
+	"locationY": 73,
 	"image": "./det.png"
 };
 
@@ -49,25 +49,11 @@ function draw()
 {
 
 	///////////////////ADD YOUR CODE HERE///////////////////
-//    North: detSpeedX = 0 and detSpeedY = -1
-//    East: detSpeedX = 1 and detSpeedY  = 0
-//    South: detSpeedX = 0 and detSpeedY = 1
-//    West: detSpeedX = -1 and detSpeedY = 0
-
-    //south
-	if ((det.locationY < 135 && det.locationX > 760) || (det.locationX < 393 && det.locationY < 189)){
+	if (det.locationY < 322)
+	{
 		det.speedX = 0;
 		det.speedY = 1;
 	}
-    
-    //west
-    if((det.locationY>133 && det.locationX>760)){
-        det.speedX = -1;
-        det.speedY = 0;
-    }
-    
-    //east
-    if((det.locationX>385 && det.locationY<192))
 
 
 	///////////////DO NOT CHANGE CODE BELOW THIS POINT///////////////////
@@ -146,6 +132,6 @@ var perp = {
 	"caught": 0,
 	"name": "Fox",
 	"image": "./perp.png",
-	"locationX": 701,
-	"locationY": 696
+	"locationX": 889,
+	"locationY": 135
 };

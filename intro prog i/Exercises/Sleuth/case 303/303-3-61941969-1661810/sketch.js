@@ -96,7 +96,7 @@ function mouseReleased(){
 //When any key is released:
 //	- Make Cryptic_Vault_Value_2 equal to the value of 'keyCode'
 function keyReleased(){
-    Cryptic_Vault_Value_2 = keyReleased;
+    Cryptic_Vault_Value_2 = keyCode;
 }
 
 //Whilst the mouse is being dragged:
