@@ -102,8 +102,31 @@ function draw()
 
 	//Develop the antidote below
 	//Write conditional statements to change the amount of each substance ...
-
-
+//    When sarin dips below 0.29, reduce antibodies by 0.02
+//	- When formaldehyde goes above 0.27, increase antibodies by 0.05
+//	- If formaldehyde dips below 0.48, decrement methylene by 0.05
+//	- When alcohol dips below 0.39, try increasing methylene by 0.02
+//	- If sarin goes above 0.3, reduce Hydrochloric_Acid by 0.05
+//	- If formaldehyde goes above 0.51, raise Hydrochloric_Acid by 0.04
+    
+    if(sarin<0.29){
+        antibodies -= 0.02;
+    }
+    if(formaldehyde>0.27){
+        antibodies += 0.05;
+    }
+    if(formaldehyde<0.48){
+        methylene -= 0.05;
+    }
+    if(alcohol<0.39){
+        methylene += 0.02;
+    }
+    if(sarin>0.3){
+        Hydrochloric_Acid -= 0.05;
+    }
+    if(formaldehyde>0.51){
+        Hydrochloric_Acid += 0.04;
+    }
 
 
 	//////////////////////////////////////////////////////
