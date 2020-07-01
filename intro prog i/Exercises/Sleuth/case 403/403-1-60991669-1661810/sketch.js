@@ -42,9 +42,9 @@ function draw()
     image(img,0,0);
 
     //Write your code below here ...
-    if(dist(mouseX, mouseY, 1908, 697) < 80){
+    if(dist(mouseX, mouseY, 1910, 691) < 80){
         fill(30, 144, 255);
-        ellipse(1908, 697, 80);
+        ellipse(1910, 691, 160);
     }
 
 
