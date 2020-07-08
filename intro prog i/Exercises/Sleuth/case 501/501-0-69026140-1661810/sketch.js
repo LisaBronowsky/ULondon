@@ -43,5 +43,8 @@ function setup() {
 
 function draw() {
     // add your for loop below
+    for(i=0; i<6; i++){
+        image(beadImage, 650, 285 + i*65);
+    }
 
 }
