@@ -101,29 +101,29 @@ function draw()
 	drawGameChar();
 
 	// Logic to make the game character move or the background scroll.
-	if(isLeft)
-	{
-		if(gameChar_x > width * 0.2)
-		{
-			gameChar_x -= 5;
-		}
-		else
-		{
-			scrollPos += 5;
-		}
-	}
-
-	if(isRight)
-	{
-		if(gameChar_x < width * 0.8)
-		{
-			gameChar_x  += 5;
-		}
-		else
-		{
-			scrollPos -= 5; // negative for moving against the background
-		}
-	}
+//	if(isLeft)
+//	{
+//		if(gameChar_x > width * 0.2)
+//		{
+//			gameChar_x -= 5;
+//		}
+//		else
+//		{
+//			scrollPos += 5;
+//		}
+//	}
+//
+//	if(isRight)
+//	{
+//		if(gameChar_x < width * 0.8)
+//		{
+//			gameChar_x  += 5;
+//		}
+//		else
+//		{
+//			scrollPos -= 5; // negative for moving against the background
+//		}
+//	}
 
 	// Logic to make the game character rise and fall.
     //Put conditional statements to move the game character below here
@@ -170,7 +170,7 @@ function keyPressed(){
 	console.log("press" + keyCode);
 	console.log("press" + key);
     
-     //left arrow pressed
+    //left arrow pressed
     if(keyCode == 37){
         console.log("left arrow");
         isLeft = true;
@@ -186,7 +186,6 @@ function keyPressed(){
         isFalling = true;
         isPlummeting = false;
     }
-
 }
 
 function keyReleased(){
@@ -372,6 +371,22 @@ function drawGameChar(){
     rect(gameChar_x-7, gameChar_y-65, 15, 5);
 
 	}
+    //Put conditional statements to move the game character below here
+    if(isLeft == true){
+        gameChar_x -= 5;
+    }
+
+    if(isRight == true){
+        gameChar_x += 5;
+    }
+    
+    if(isFalling == true){
+        gameChar_y -= 9;
+    }
+    
+    if(isPlummeting == true){
+        gameChar_y = min(gameChar_y+2, floorPos_y);
+    }
 }
 
 // ---------------------------
