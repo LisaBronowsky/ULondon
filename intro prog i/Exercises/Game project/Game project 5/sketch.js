@@ -100,30 +100,30 @@ function draw()
 	
 	drawGameChar();
 
-	// Logic to make the game character move or the background scroll.
-//	if(isLeft)
-//	{
-//		if(gameChar_x > width * 0.2)
-//		{
-//			gameChar_x -= 5;
-//		}
-//		else
-//		{
-//			scrollPos += 5;
-//		}
-//	}
-//
-//	if(isRight)
-//	{
-//		if(gameChar_x < width * 0.8)
-//		{
-//			gameChar_x  += 5;
-//		}
-//		else
-//		{
-//			scrollPos -= 5; // negative for moving against the background
-//		}
-//	}
+	 Logic to make the game character move or the background scroll.
+	if(isLeft)
+	{
+		if(gameChar_x > width * 0.2)
+		{
+			gameChar_x -= 5;
+		}
+		else
+		{
+			scrollPos += 5;
+		}
+	}
+
+	if(isRight)
+	{
+		if(gameChar_x < width * 0.8)
+		{
+			gameChar_x  += 5;
+		}
+		else
+		{
+			scrollPos -= 5; // negative for moving against the background
+		}
+	}
 
 	// Logic to make the game character rise and fall.
     //Put conditional statements to move the game character below here
@@ -142,19 +142,6 @@ function draw()
     if(isPlummeting == true){
         gameChar_y = min(gameChar_y+2, floorPos_y);
     }
-    
-//    if(canyon.x_pos< gameChar_x && (canyon.x_pos+canyon.width) > gameChar_x && gameChar_y <= floorPos_y){
-//        canyon.isTrapped=true;
-//    }
-//    if(canyon.x_pos> gameChar_x){
-//        canyon.isTrapped=false;
-//    }
-//    
-//    if(canyon.isTrapped == true){
-//        isPlummeting = false;
-//        gameChar_y += 5;
-//    }
-//}
 
 	// Update real position of gameChar for collision detection.
 	gameChar_world_x = gameChar_x - scrollPos;

@@ -14,50 +14,19 @@ var isLeft;
 var isRight;
 var isFalling;
 var isPlummeting;
+var isJumping;
+
+var flagpole;
+var lives;
 
 function setup()
 {
 	createCanvas(1024, 576);
 	floorPos_y = height * 3/4;
-	gameChar_x = width/2;
-	gameChar_y = floorPos_y;
-
-	// Variable to control the background scrolling.
-	scrollPos = 0;
-
-	// Variable to store the real position of the gameChar in the game
-	// world. Needed for collision detection.
-	gameChar_world_x = gameChar_x - scrollPos;
-
-	// Boolean variables to control the movement of the game character.
-	isLeft = false;
-	isRight = false;
-	isFalling = false;
-	isPlummeting = false;
-
-	// Initialise arrays of scenery objects.
-    trees_x = [-650, -350, -150, 100, 300, 500, 1000, 1300, 1500, 2000, 2500];
-    treePos_y = height/2;
     
-    clouds = [{x_pos: -300, y_pos: 100, size: 80},
-              {x_pos: -100, y_pos: 50, size: 80},
-              {x_pos: 50, y_pos: 70, size: 80},
-              {x_pos: 100, y_pos: 150, size: 80}, 
-              {x_pos: 600, y_pos: 100, size: 80}, 
-              {x_pos: 800, y_pos: 150, size: 80},
-              {x_pos: 1000, y_pos: 50, size: 80},
-              {x_pos: 1300, y_pos: 50, size: 80},
-              {x_pos: 1500, y_pos: 100, size: 80},
-              {x_pos: 1700, y_pos: 100, size: 80},
-              {x_pos: 2000, y_pos: 50, size: 80},
-              {x_pos: 2300, y_pos: 150, size: 80},
-              {x_pos: 2700, y_pos: 100, size: 80}];
+    lives = 3;
     
-    mountains = [{x_pos: -500, y_pos: floorPos_y}, {x_pos: 200, y_pos: floorPos_y}, {x_pos: 650, y_pos: 350}, {x_pos: 1800, y_pos: floorPos_y}, {x_pos: 2200, y_pos: floorPos_y}, {x_pos: 2300, y_pos: 350}];
-    
-    canyons = [{x_pos:550, width: 100}, {x_pos:250, width: 100}];
-    
-    collectables = [{x_pos: 50, y_pos: floorPos_y-30, size: 50, isFound: false}, {x_pos: 250, y_pos: floorPos_y-150, size: 50, isFound: false}, {x_pos: 370, y_pos: floorPos_y-30, size: 50, isFound: false}, {x_pos: 500, y_pos: floorPos_y-150, size: 50, isFound: false}, {x_pos: 700, y_pos: floorPos_y-150, size: 50, isFound: false}, {x_pos: 850, y_pos: floorPos_y-30, size: 50, isFound: false}];
+    startGame();
 }
 
 
@@ -132,6 +101,10 @@ function draw()
         gameChar_y = min(gameChar_y+2, floorPos_y);
     }
     
+    if(isJumping){
+        gameChar_y += 5;
+    }
+    
 
 	// Update real position of gameChar for collision detection.
 	gameChar_world_x = gameChar_x - scrollPos;
@@ -161,7 +134,7 @@ function keyPressed(){
     //top key pressed
     else if(keyCode == 38){
         console.log("top arrow");
-        isFalling = true;
+        isJumping = true;
         isPlummeting = false;
     }
 
@@ -185,12 +158,54 @@ function keyReleased(){
     //top key released
     else if(keyCode == 38){
         console.log("top arrow");
-        isFalling = false;
+        isJumping = false;
         isPlummeting = true;
     }
 }
 
+//start game function
+function startGame(){
+    gameChar_x = width/2;
+	gameChar_y = floorPos_y;
 
+	// Variable to control the background scrolling.
+	scrollPos = 0;
+
+	// Variable to store the real position of the gameChar in the game
+	// world. Needed for collision detection.
+	gameChar_world_x = gameChar_x - scrollPos;
+
+	// Boolean variables to control the movement of the game character.
+	isLeft = false;
+	isRight = false;
+	isFalling = false;
+	isPlummeting = false;
+    isJumping = false;
+
+	// Initialise arrays of scenery objects.
+    trees_x = [-650, -350, -150, 100, 300, 500, 1000, 1300, 1500, 2000, 2500];
+    treePos_y = height/2;
+    
+    clouds = [{x_pos: -300, y_pos: 100, size: 80},
+              {x_pos: -100, y_pos: 50, size: 80},
+              {x_pos: 50, y_pos: 70, size: 80},
+              {x_pos: 100, y_pos: 150, size: 80}, 
+              {x_pos: 600, y_pos: 100, size: 80}, 
+              {x_pos: 800, y_pos: 150, size: 80},
+              {x_pos: 1000, y_pos: 50, size: 80},
+              {x_pos: 1300, y_pos: 50, size: 80},
+              {x_pos: 1500, y_pos: 100, size: 80},
+              {x_pos: 1700, y_pos: 100, size: 80},
+              {x_pos: 2000, y_pos: 50, size: 80},
+              {x_pos: 2300, y_pos: 150, size: 80},
+              {x_pos: 2700, y_pos: 100, size: 80}];
+    
+    mountains = [{x_pos: -500, y_pos: floorPos_y}, {x_pos: 200, y_pos: floorPos_y}, {x_pos: 650, y_pos: 350}, {x_pos: 1800, y_pos: floorPos_y}, {x_pos: 2200, y_pos: floorPos_y}, {x_pos: 2300, y_pos: 350}];
+    
+    canyons = [{x_pos:550, width: 100}, {x_pos:250, width: 100}];
+    
+    collectables = [{x_pos: 50, y_pos: floorPos_y-30, size: 50, isFound: false}, {x_pos: 250, y_pos: floorPos_y-150, size: 50, isFound: false}, {x_pos: 370, y_pos: floorPos_y-30, size: 50, isFound: false}, {x_pos: 500, y_pos: floorPos_y-150, size: 50, isFound: false}, {x_pos: 700, y_pos: floorPos_y-150, size: 50, isFound: false}, {x_pos: 850, y_pos: floorPos_y-30, size: 50, isFound: false}];
+}
 // ------------------------------
 // Game character render function
 // ------------------------------

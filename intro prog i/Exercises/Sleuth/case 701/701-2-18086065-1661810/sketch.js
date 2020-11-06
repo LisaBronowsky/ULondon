@@ -117,6 +117,36 @@ function setup()
 }
 
 // Declare your function here
+//witness statement: I remember walking down the street and then I saw them. It's hard to say. They were fairly tall, I think between a height of 160 and 190 cm. Their expression seemed sad. I distinctly remember that they were wearing a purple hat, I remember thinking that was quite unusual. They were carrying a brown paper bag. It was very dark and I could barely see, They had ginger hair. They seemed to be between the age of 28 and 50 years old. They brobably weigh between 64 and 100 kg. I'll never forget their brown eyes. I hope I never have to go through that again. 
+
+function matchProperties(suspectObject){
+    var matchingProperties = 0;
+    if(suspectObject.height > 160 && suspectObject.height < 190){
+        matchingProperties += 1;
+       }
+    if(suspectObject.expression == "sad"){
+        matchingProperties += 1;
+    }
+    if(suspectObject.item == "purple hat"){
+        matchingProperties += 1;
+    }
+    if(suspectObject.accessory == "brown paper bag"){
+        matchingProperties += 1;
+    }
+    if( suspectObject.hair == "ginger"){
+        matchingProperties += 1;
+    }
+    if(suspectObject.age > 28 && suspectObject.age < 50){
+        matchingProperties += 1;
+    }
+    if(suspectObject.weight > 64 && suspectObject.weight < 100){
+        matchingProperties += 1;
+    }
+    if(suspectObject.eyes == "brown"){
+        matchingProperties += 1;
+    }
+       return matchingProperties;
+}
 
 
 
