@@ -1,12 +1,19 @@
 //Constructor function to handle the onscreen menu, keyboard and mouse
 //controls
+var vis = null;
+
 function ControlsAndInput(){
 	
 	this.menuDisplayed = false;
 	
 	//playback button displayed in the top left of the screen
 	this.playbackButton = new PlaybackButton();
-
+    
+    vis = new Visualisations();
+    vis.add(new Spectrum());
+    vis.add(new WavePattern());
+    vis.add(new PlaybackButton());
+    
 	//make the window fullscreen or revert to windowed
 	this.mousePressed = function(){
 		//???
@@ -58,8 +65,8 @@ function ControlsAndInput(){
 	this.menu = function(){
 		//draw out menu items for each visualisation
 		//???
-        for(var i=0; i<vis.visuals.length; i++){
-            text(vis.visuals[i], 100, 70+(i*30));
+        for(var i=0; i<this.vis.length; i++){
+            text(this.vis[i], 100, 70+(i*30));
         }
 	};
 }
